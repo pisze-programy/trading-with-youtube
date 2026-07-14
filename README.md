@@ -21,12 +21,58 @@ This project combines multiple data sources to analyze financial trends and pred
 - Backend to store the data
 - Data visualization in the form of charts and tables showing related data
 
+## How to Use
+
+1. Run the FastAPI server:
+   ```
+   uvicorn app.main:app --reload
+   ```
+
+2. Send a POST request to `/analyze_video` with a YouTube URL:
+   ```json
+   {
+     "url": "https://www.youtube.com/watch?v=example"
+   }
+   ```
+
+3. Results will be saved in `data/analysis_results.csv`
+
+## Prompt Templates
+
+The application uses template-based prompting where:
+- The `prompt` parameter accepts a template string that can include a `{transcript}` placeholder  
+- When the analysis runs, the actual transcript content is inserted into this placeholder
+- Your custom prompt is used as the base template with transcript content injected as context
+
+Example custom prompts:
+```json
+{
+  "url": "https://www.youtube.com/watch?v=example",
+  "prompt": "Based on this YouTube transcript, identify key financial predictions and analyze their validity: {transcript}"
+}
+```
+
+If no `{transcript}` placeholder is included in your prompt, the transcript will be appended at the end of the prompt as context.
+
+## Configuration
+
+The application uses environment variables for configuration. Create a `.env` file in the project root with the following settings:
+
+```
+# Ollama API Configuration
+OLLAMA_API_URL=$url
+OLLAMA_MODEL=$model
+
+# Data Directory
+DATA_DIR=data
+```
+
 ## Technologies
 
-- Defined prompts for data analysis
-- Data analysis agents
-- Backend to store data
-- Data visualization in charts and tables with related data
+- FastAPI for the web server
+- youtube-transcript-api for fetching transcripts  
+- Ollama for AI analysis
+- CSV storage for results
 
 ## License
 
