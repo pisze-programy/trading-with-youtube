@@ -34,7 +34,6 @@ Respond ONLY with valid JSON. Do not include any preamble, introduction, markdow
   "published_at": "YYYY-MM-DDTHH:MM:SSZ",
   "signals": [
     {
-      "timestamp_video": "HH:MM:SS",
       "asset": "...",
       "direction": "bullish | bearish | neutral | mixed | n/a",
       "timeframe": "short-term | medium-term | long-term | n/a",

@@ -65,6 +65,11 @@ OLLAMA_MODEL=$model
 
 # Data Directory
 DATA_DIR=data
+
+# WebshareProxyConfig
+# https://dashboard.webshare.io/proxy/settings
+PROXY_USERNAME=
+PROXY_PASSWORD=
 ```
 
 ## Technologies
