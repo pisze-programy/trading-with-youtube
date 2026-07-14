@@ -35,7 +35,9 @@ This project combines multiple data sources to analyze financial trends and pred
    }
    ```
 
-3. Results will be saved in `data/analysis_results.csv`
+3. Results will be persisted as JSON files under the
+`DATA_DIR` directory. Each YouTube channel has its own file named after
+the channel name – new analyses are appended to that file.
 
 ## Prompt Templates
 
@@ -47,8 +49,7 @@ The application uses template-based prompting where:
 Example custom prompts:
 ```json
 {
-  "url": "https://www.youtube.com/watch?v=example",
-  "prompt": "Based on this YouTube transcript, identify key financial predictions and analyze their validity: {transcript}"
+  "url": "https://www.youtube.com/watch?v=example"
 }
 ```
 
@@ -77,7 +78,7 @@ PROXY_PASSWORD=
 - FastAPI for the web server
 - youtube-transcript-api for fetching transcripts  
 - Ollama for AI analysis
-- CSV storage for results
+- JSON file storage per channel
 
 ## License
 

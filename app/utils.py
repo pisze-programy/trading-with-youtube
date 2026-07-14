@@ -1,4 +1,4 @@
-import csv
+
 import json
 import os
 import requests
@@ -19,7 +19,7 @@ def get_video_id(url: str) -> str:
     return url.split("=")[-1]
 
 
-def fetch_transcript_with_timestamps(url: str) -> List[Dict[str, Any]]:
+def fetch_transcript(url: str) -> List[Dict[str, Any]]:
     vid = get_video_id(url)
     try:
         raw = YouTubeTranscriptApi(
@@ -60,24 +60,45 @@ def analyze_with_ollama(transcript: List[Dict[str, Any]]) -> Dict[str, Any]:
         raise HTTPException(status_code=500, detail=f"Analysis error: {str(exc)}") from exc
 
 
-def save_to_csv(data: str, filename: str = "analysis_results.csv") -> None:
+def save_to_csv(data: Any) -> None:
+    """Persist analysis result per channel as JSON.
+
+    Accepts any object – if a dict is provided we use the ``channel_name`` key
+    for the filename; otherwise an ``unknown.json`` file is created.  The
+    content of each file is a list containing all analyses that were saved for
+    that channel – new entries are appended.
+    """
     data_dir = os.getenv("DATA_DIR")
+
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
-        
+    
+    is_dict = isinstance(data, dict)
+    channel_name = data.get("channel_name", "unknown") if is_dict else "unknown"
+    channel_name = channel_name or "unknown"
+    if channel_name == "unknown":
+        return None
+
+    filename = f"{channel_name}.json"
     filepath = os.path.join(data_dir, filename)
+    try:
+        if os.path.exists(filepath):
+            with open(filepath, 'r', encoding='utf-8') as fp:
+                existing = json.load(fp)
+                if not isinstance(existing, list):
+                    existing = []
+        else:
+            existing = []
+    except Exception:
+        existing = []
+    
+    existing.append(data)
+    with open(filepath, 'w', encoding='utf-8') as fp:
+        json.dump(existing, fp, indent=2, ensure_ascii=False)
 
-    csv_data = [data]
 
-    with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['value']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(csv_data)
-
-
-def fetch_and_analyze(url: str, filename: str = "analysis_results.csv") -> Dict[str, Any]:
-    transcript = fetch_transcript_with_timestamps(url)
+def fetch_and_analyze(url: str) -> Dict[str, Any]:
+    transcript = fetch_transcript(url)
     analysis = analyze_with_ollama(transcript)
-    save_to_csv(analysis, filename=filename)
+    save_to_csv(analysis)
     return analysis
