@@ -1,8 +1,9 @@
-
 import json
 import os
+import re
 import requests
 import yt_dlp
+from datetime import datetime
 from dotenv import load_dotenv
 from fastapi.exceptions import HTTPException
 from typing import Dict, List, Any
@@ -32,35 +33,43 @@ def fetch_transcript(url: str) -> List[Dict[str, Any]]:
 
 
 def analyze_with_ollama(meta: Dict[str, Any], transcript: List[Dict[str, Any]]) -> Dict[str, Any]:
-    prompt_template = ""
+    prompt = ""
 
     with open("prompts/youtube.md", "r", encoding="utf-8") as f:
-        prompt_template = f.read()
+        prompt = f.read()
 
-    if not prompt_template or not transcript:
+    if not prompt or not transcript:
         return ""
 
     try:
-        full_prompt = prompt_template.format(
-            TRANSCRIPT=transcript,
-            CHANNEL_NAME=meta.get("channel_name") or "unknown",
-            VIDEO_TITLE=meta.get("title") or "unknown",
-            VIDEO_URL=meta.get("url") or "unknown",
-            PUBLISHED_AT=meta.get("published_at") or "unknown"
-        )
+        prompt = prompt.replace("{TRANSCRIPT}", str(transcript))
+        prompt = prompt.replace("{CHANNEL_NAME}", str(meta.get("channel_name", "N/A")))
+        prompt = prompt.replace("{VIDEO_TITLE}", str(meta.get("title", "N/A")))
+        prompt = prompt.replace("{VIDEO_URL}", str(meta.get("url", "N/A")))
+        prompt = prompt.replace("{PUBLISHED_AT}", str(meta.get("published_at", "N/A")))
 
         response = requests.post(
             os.getenv("OLLAMA_API_URL"),
             json={
                 "model": os.getenv("OLLAMA_MODEL"),
-                "prompt": full_prompt,
+                "prompt": prompt,
                 "stream": False
             },
             timeout=60
         )
         
         if response.status_code == 200:
-            return response.json().get("response", "")
+            raw_content = response.json().get("response", "")
+            try:
+                data = json.loads(raw_content)
+            except json.JSONDecodeError:
+                if isinstance(raw_content, list):
+                    raw_content = raw_content[0]
+                data = json.loads(raw_content)
+            if isinstance(data, str):
+                data = json.loads(data)
+
+            return data
         else:
             raise HTTPException(status_code=500, detail="Ollama analysis failed")
             
@@ -76,15 +85,29 @@ def fetch_video_metadata(url: str) -> Dict[str, Any]:
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=False)
+        # upload_date '20260712'
+        raw_date = info.get("upload_date")
+        # formatted '2026-07-12'
+        if raw_date and len(raw_date) == 8:
+            formatted_date = datetime.strptime(raw_date, "%Y%m%d").strftime("%Y-%m-%d")
+        else:
+            formatted_date = raw_date
+
         return {
             "title": info.get("title"),
             "channel_name": info.get("uploader"),
-            "published_at": info.get("upload_date"),
+            "published_at": formatted_date,
             "channel_id": info.get("channel_id"),
             "url": info.get("webpage_url"),
             "duration": info.get("duration")
         }
     return None
+
+
+def sanitize_filename(name: str) -> str:
+    name = name.replace(" ", "_")
+    name = re.sub(r'(?u)[^-\w]', '', name)
+    return name
 
 
 def save_to_file(meta: Dict[str, Any], data: Any):
@@ -93,8 +116,10 @@ def save_to_file(meta: Dict[str, Any], data: Any):
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
 
-    filename = f"{meta.get('channel_name', 'unknown')}.json"
+    raw_channel_name = meta.get("channel_name", "unknown")
+    filename = f"{sanitize_filename(raw_channel_name)}.json"
     filepath = os.path.join(data_dir, filename)
+
     try:
         if os.path.exists(filepath):
             with open(filepath, 'r', encoding='utf-8') as fp:
