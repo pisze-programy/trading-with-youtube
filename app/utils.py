@@ -1,11 +1,13 @@
-import os
+import csv
 import json
-from typing import Dict, List, Any
-from fastapi.exceptions import HTTPException
-from youtube_transcript_api import YouTubeTranscriptApi
-from youtube_transcript_api.formatters import TextFormatter
+import os
 import requests
 from dotenv import load_dotenv
+from fastapi.exceptions import HTTPException
+from typing import Dict, List, Any
+from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.formatters import TextFormatter
+from youtube_transcript_api.proxies import WebshareProxyConfig
 
 load_dotenv()
 
@@ -21,10 +23,7 @@ def fetch_transcript_with_timestamps(url: str) -> List[Dict[str, Any]]:
     vid = get_video_id(url)
     try:
         raw = YouTubeTranscriptApi(
-            proxy_config=WebshareProxyConfig(
-                proxy_username=PROXY_USERNAME,
-                proxy_password=PROXY_PASSWORD,
-            )
+
         ).fetch(vid, languages=['en', 'pl'], preserve_formatting=True)
         return " ".join([w.text for w in raw])
     except Exception as exc:
@@ -62,13 +61,14 @@ def analyze_with_ollama(transcript: List[Dict[str, Any]]) -> Dict[str, Any]:
 
 
 def save_to_csv(data: str, filename: str = "analysis_results.csv") -> None:
-    if not os.path.exists(os.getenv("DATA_DIR")):
-        os.makedirs(os.getenv("DATA_DIR"))
+    data_dir = os.getenv("DATA_DIR")
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
         
-    filepath = os.path.join(os.getenv("DATA_DIR"), filename)
-    
-    csv_data.append(data)
-    
+    filepath = os.path.join(data_dir, filename)
+
+    csv_data = [data]
+
     with open(filepath, 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['value']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -79,5 +79,5 @@ def save_to_csv(data: str, filename: str = "analysis_results.csv") -> None:
 def fetch_and_analyze(url: str, filename: str = "analysis_results.csv") -> Dict[str, Any]:
     transcript = fetch_transcript_with_timestamps(url)
     analysis = analyze_with_ollama(transcript)
-    utils.save_to_csv(analysis, filename=filename)
+    save_to_csv(analysis, filename=filename)
     return analysis

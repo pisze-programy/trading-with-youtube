@@ -1,16 +1,12 @@
-from fastapi import FastAPI
-import app.utils as utils
-from pydantic import BaseModel
-
 import os
 from dotenv import load_dotenv
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+import app.utils as utils
 
 load_dotenv()
 app = FastAPI()
-
-
-os.makedirs(os.getenv("DATA_DIR"), exist_ok=True)
-
 
 class AnalysisRequest(BaseModel):
     url: str
