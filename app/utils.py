@@ -2,6 +2,7 @@
 import json
 import os
 import requests
+import yt_dlp
 from dotenv import load_dotenv
 from fastapi.exceptions import HTTPException
 from typing import Dict, List, Any
@@ -30,8 +31,9 @@ def fetch_transcript(url: str) -> List[Dict[str, Any]]:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-def analyze_with_ollama(transcript: List[Dict[str, Any]]) -> Dict[str, Any]:
+def analyze_with_ollama(meta: Dict[str, Any], transcript: List[Dict[str, Any]]) -> Dict[str, Any]:
     prompt_template = ""
+
     with open("prompts/youtube.md", "r", encoding="utf-8") as f:
         prompt_template = f.read()
 
@@ -39,7 +41,13 @@ def analyze_with_ollama(transcript: List[Dict[str, Any]]) -> Dict[str, Any]:
         return ""
 
     try:
-        full_prompt = prompt_template.replace("{transcript}", transcript)
+        full_prompt = prompt_template.format(
+            TRANSCRIPT=transcript,
+            CHANNEL_NAME=meta.get("channel_name") or "unknown",
+            VIDEO_TITLE=meta.get("title") or "unknown",
+            VIDEO_URL=meta.get("url") or "unknown",
+            PUBLISHED_AT=meta.get("published_at") or "unknown"
+        )
 
         response = requests.post(
             os.getenv("OLLAMA_API_URL"),
@@ -60,26 +68,32 @@ def analyze_with_ollama(transcript: List[Dict[str, Any]]) -> Dict[str, Any]:
         raise HTTPException(status_code=500, detail=f"Analysis error: {str(exc)}") from exc
 
 
-def save_to_csv(data: Any) -> None:
-    """Persist analysis result per channel as JSON.
+def fetch_video_metadata(url: str) -> Dict[str, Any]:
+    ydl_opts = {
+        'skip_download': True,
+        'quiet': True,
+    }
 
-    Accepts any object – if a dict is provided we use the ``channel_name`` key
-    for the filename; otherwise an ``unknown.json`` file is created.  The
-    content of each file is a list containing all analyses that were saved for
-    that channel – new entries are appended.
-    """
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(url, download=False)
+        return {
+            "title": info.get("title"),
+            "channel_name": info.get("uploader"),
+            "published_at": info.get("upload_date"),
+            "channel_id": info.get("channel_id"),
+            "url": info.get("webpage_url"),
+            "duration": info.get("duration")
+        }
+    return None
+
+
+def save_to_file(meta: Dict[str, Any], data: Any):
     data_dir = os.getenv("DATA_DIR")
 
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
-    
-    is_dict = isinstance(data, dict)
-    channel_name = data.get("channel_name", "unknown") if is_dict else "unknown"
-    channel_name = channel_name or "unknown"
-    if channel_name == "unknown":
-        return None
 
-    filename = f"{channel_name}.json"
+    filename = f"{meta.get('channel_name', 'unknown')}.json"
     filepath = os.path.join(data_dir, filename)
     try:
         if os.path.exists(filepath):
@@ -99,6 +113,7 @@ def save_to_csv(data: Any) -> None:
 
 def fetch_and_analyze(url: str) -> Dict[str, Any]:
     transcript = fetch_transcript(url)
-    analysis = analyze_with_ollama(transcript)
-    save_to_csv(analysis)
-    return analysis
+    meta = fetch_video_metadata(url)
+    analysis_text = analyze_with_ollama(meta, transcript)
+    save_to_file(meta, analysis_text)
+    return analysis_text

@@ -1,7 +1,13 @@
 # YouTube Financial Signal Extractor Prompt
 
+## Metadata
+CHANNEL_NAME: {CHANNEL_NAME}
+VIDEO_TITLE: {VIDEO_TITLE}
+VIDEO_URL: {VIDEO_URL}
+PUBLISHED_AT: {PUBLISHED_AT}
+
 ## Video Transcript
-{transcript}
+{TRANSCRIPT}
 
 ## Task
 You are an expert financial signal extractor. Your job is to analyze YouTube video transcripts/content and identify any signals related to money flows, markets, investments, macroeconomics, political economy, asset prices, sentiment, trends, or recommendations — direct or implied.
@@ -28,10 +34,10 @@ Respond ONLY with valid JSON. Do not include any preamble, introduction, markdow
 ## Output Schema
 ```json
 {
-  "channel_name": "...",
-  "video_title": "...",
-  "video_url": "...",
-  "published_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "channel_name": "{CHANNEL_NAME}",
+  "video_title": "{VIDEO_TITLE}",
+  "video_url": "{VIDEO_URL}",
+  "published_at": "{PUBLISHED_AT}",
   "signals": [
     {
       "asset": "...",

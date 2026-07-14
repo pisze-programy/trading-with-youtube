@@ -14,5 +14,5 @@ class AnalysisRequest(BaseModel):
 @app.post("/analyze_video")
 async def analyze_video(request: AnalysisRequest):
     result = utils.fetch_and_analyze(request.url)
-    utils.save_to_csv(result)
+    utils.save_to_file(result)
     return result

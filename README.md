@@ -73,12 +73,15 @@ PROXY_USERNAME=
 PROXY_PASSWORD=
 ```
 
-## Technologies
+## STACK
 
 - FastAPI for the web server
 - youtube-transcript-api for fetching transcripts  
 - Ollama for AI analysis
 - JSON file storage per channel
+
+## TODO
+- WebshareProxyConfig Integration
 
 ## License
 
