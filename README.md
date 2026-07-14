@@ -1,6 +1,4 @@
 # Trading with YouTube
-
-## TLDR
 Finding correlations between YouTube influencers' predictions and real market movements.
 
 ## About
@@ -8,9 +6,9 @@ In various places on the internet, we encounter investment experts who share the
 
 A new episode might appear next week - nobody remembers what happened last week. Gathering data and visualizing it will make it easy to check if an influencer's prediction or suggestion made sense.
 
-What if we add top news from internet newspapers? It might turn out that some influencers are promoting the same popular, incorrect opinions about market direction.
+What if we add top news from news? It might turn out that some influencers are promoting the same popular, incorrect opinions about market direction.
 
-Recently, prediction markets have become popular - people bet their money trying to estimate risk for a given event (predicting the future). If we add daily market movements from Polymarket to our dataset, it may turn out that combining news and prediction markets either contradicts or aligns with influencer opinions. I'm looking for this correlation.
+Recently, prediction markets have become popular - people bet their money trying to estimate risk for a given event (predicting the future). If we add daily market movements from Polymarket to our dataset, it may turn out that combining news and prediction markets either contradicts or aligns with influencer opinions and — `I'm looking for this correlation!`
 
 ## Project Structure
 
@@ -21,7 +19,7 @@ This project combines multiple data sources to analyze financial trends and pred
 - Backend to store the data
 - Data visualization in the form of charts and tables showing related data
 
-## How to Use
+## Youtube video URL Usage
 
 1. Run the FastAPI server:
    ```
@@ -42,7 +40,6 @@ the channel name – new analyses are appended to that file.
 ## Prompt Templates
 
 The application uses template-based prompting where:
-- The `prompt` parameter accepts a template string that can include a `{transcript}` placeholder  
 - When the analysis runs, the actual transcript content is inserted into this placeholder
 - Your custom prompt is used as the base template with transcript content injected as context
 
@@ -53,11 +50,10 @@ Example custom prompts:
 }
 ```
 
-If no `{transcript}` placeholder is included in your prompt, the transcript will be appended at the end of the prompt as context.
-
 ## Configuration
 
-The application uses environment variables for configuration. Create a `.env` file in the project root with the following settings:
+The application uses environment variables for configuration.
+Create a `.env` file in the project root with the following settings:
 
 ```
 # Ollama API Configuration
