@@ -14,4 +14,6 @@ class AnalysisRequest(BaseModel):
 @app.post("/analyze_video")
 async def analyze_video(request: AnalysisRequest):
     result = utils.fetch_and_analyze(request.url)
-    return result
+    if result is None:
+        return {"status": "skipped", "reason": "video_too_old"}
+    return {"status": "success", "data": result}

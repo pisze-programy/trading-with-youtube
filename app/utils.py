@@ -3,7 +3,7 @@ import os
 import re
 import requests
 import yt_dlp
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from dotenv import load_dotenv
 from fastapi.exceptions import HTTPException
 from typing import Dict, List, Any
@@ -97,6 +97,7 @@ def fetch_video_metadata(url: str) -> Dict[str, Any]:
             "title": info.get("title"),
             "channel_name": info.get("uploader"),
             "published_at": formatted_date,
+            "upload_date": raw_date,
             "channel_id": info.get("channel_id"),
             "url": info.get("webpage_url"),
             "duration": info.get("duration")
@@ -110,7 +111,7 @@ def sanitize_filename(name: str) -> str:
     return name
 
 
-def save_to_file(meta: Dict[str, Any], data: Any):
+def save_to_file(meta: Dict[str, Any], data: Dict[str, Any]):
     data_dir = os.getenv("DATA_DIR")
 
     if not os.path.exists(data_dir):
@@ -132,13 +133,26 @@ def save_to_file(meta: Dict[str, Any], data: Any):
         existing = []
     
     existing.append(data)
+
     with open(filepath, 'w', encoding='utf-8') as fp:
         json.dump(existing, fp, indent=2, ensure_ascii=False)
 
 
 def fetch_and_analyze(url: str) -> Dict[str, Any]:
-    transcript = fetch_transcript(url)
+    two_years_ago = datetime.now(timezone.utc) - timedelta(days=2 * 365)
+
     meta = fetch_video_metadata(url)
+
+    upload_date_str = meta.get('upload_date')
+    upload_date = datetime.strptime(upload_date_str, '%Y%m%d').replace(tzinfo=timezone.utc)
+
+    if upload_date < two_years_ago:
+        return None
+
+    transcript = fetch_transcript(url)
+    print(meta)
+    print(url)
+
     analysis_text = analyze_with_ollama(meta, transcript)
     save_to_file(meta, analysis_text)
     return analysis_text
