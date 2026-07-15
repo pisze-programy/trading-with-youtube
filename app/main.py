@@ -9,11 +9,9 @@ load_dotenv()
 app = FastAPI()
 
 class AnalysisRequest(BaseModel):
-    url: str
+    channel_name: str
 
-@app.post("/analyze_video")
-async def analyze_video(request: AnalysisRequest):
-    result = utils.fetch_and_analyze(request.url)
-    if result is None:
-        return {"status": "skipped", "reason": "video_too_old"}
+@app.post("/analyze_channel")
+async def analyze_channel(request: AnalysisRequest):
+    result = utils.fetch_and_analyze(request.channel_name)
     return {"status": "success", "data": result}

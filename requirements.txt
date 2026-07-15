@@ -5,3 +5,4 @@ pydantic
 requests
 yt_dlp
 youtube_transcript_api
+dotenv

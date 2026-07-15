@@ -1,0 +1,664 @@
+[
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "OD TERAZ UE MOŻE CZYTAĆ TWOJE WIADOMOŚCI, UKRAINA MA 2 MIES. NA ZAKOŃCZENIE WOJNY, RUSZA PRODUKCJA",
+    "video_url": "https://www.youtube.com/watch?v=vPz2Xnayu-Y",
+    "published_at": "2026-07-12",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "medium-term",
+        "summary": "Increased government spending on healthcare and defense, coupled with potential corruption in public procurement, may strain fiscal resources and reduce efficiency in public investments.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish defense sector",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Start of serial production of Polish drone Hornet signals increased domestic defense investment and potential export opportunities, supporting growth in the defense industry.",
+        "confidence": "high"
+      },
+      {
+        "asset": "European Union regulatory framework",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Approval of Chat Control 1.0 regulation allowing platform scanning of private messages raises concerns over data privacy and may negatively impact public trust in EU institutions.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Russian economy",
+        "direction": "bearish",
+        "timeframe": "medium-term",
+        "summary": "Escalation of conflict with Ukraine and potential full mobilization by Russia could lead to increased sanctions, economic isolation, and resource misallocation, negatively affecting the Russian economy.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Ukrainian economy",
+        "direction": "bearish",
+        "timeframe": "medium-term",
+        "summary": "Continued military engagement and lack of peace resolution may prolong economic disruption, strain public finances, and hinder recovery efforts.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish healthcare system",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Corruption in hospital procurement processes, such as overpaying for catering services by up to 77%, indicates inefficiencies and mismanagement in public healthcare funding.",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "LEKARZ Z GODZINÓWKĄ WYŻSZĄ OD LEWANDOWSKIEGO, TUSK ODDAŁ RAKIETY DO PATRIOTÓW UKRAINIE, ANDURIL W PL",
+    "video_url": "https://www.youtube.com/watch?v=LlEHH0mE_OA",
+    "published_at": "2026-07-07",
+    "signals": [
+      {
+        "asset": "Polish defense sector",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Poland's defense sector faces a negative signal due to the government secretly transferring expensive Patriot missile systems to Ukraine, potentially compromising Poland's own air defense capabilities and reducing its strategic position.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "The Polish economy is negatively affected by the government's decision to give away critical defense equipment without parliamentary debate, signaling potential mismanagement and reduced national security readiness.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish healthcare system",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "The Polish healthcare system is under strain due to suspected fraud involving high-earning neurosurgeons, which may erode public trust and increase scrutiny over funding allocation.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish defense industry",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "The Polish defense industry may benefit from the production of U.S. Baracuda missiles in Poland, as it represents a move toward domestic manufacturing and potential export opportunities.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Polish military procurement",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Poland's military procurement strategy is negatively impacted by the government’s hesitation to proceed with U.S. Abrams tank coproduction, potentially leading to missed technological and industrial opportunities.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Ukrainian defense sector",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "The Ukrainian defense sector benefits from the supply of expensive Patriot missile systems, which enhances its air defense capabilities against Russian attacks.",
+        "confidence": "high"
+      },
+      {
+        "asset": "German defense industry",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "The German defense industry is positively affected by its role in coordinating missile supplies to Ukraine, potentially strengthening EU defense cooperation and export opportunities.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Polish currency",
+        "direction": "neutral",
+        "timeframe": "short-term",
+        "summary": "The Polish zloty is not directly impacted by the discussed events but may face indirect pressure due to political and economic uncertainty related to defense spending and public trust in government policies.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "OTO UKRAIŃSKI PLAN NA DOMINACJĘ W NASZYM REGIONIE! THE TELEGRAPH: KREML PLANUJE ATAK NA POLSKĘ",
+    "video_url": "https://www.youtube.com/watch?v=P-Jhfb9NZFg",
+    "published_at": "2026-07-04",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "medium-term",
+        "summary": "Ukrainian geopolitical ambitions and potential regional dominance threaten Poland's strategic position, increasing uncertainty and risk premiums in the Polish economy.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish government bonds",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Increased geopolitical tensions and perceived vulnerability due to Ukrainian plans may lead to higher borrowing costs for Poland.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Polish zloty",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Growing concerns over regional instability and potential Russian mobilization may reduce confidence in the Polish currency.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Torpol shares",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Government's plan to sell 38% stake in Torpol, a key infrastructure firm, during a major construction boom, raises concerns over national asset retention and strategic economic planning.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish construction sector",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Sale of Torpol during peak infrastructure demand may reduce domestic capacity and competitiveness in the Polish construction market.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Russian economy",
+        "direction": "mixed",
+        "timeframe": "medium-term",
+        "summary": "Possible Russian mobilization could strain domestic resources but might also serve to consolidate internal support; impact on economy is uncertain and depends on execution.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "NATO defense spending",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Potential Russian provocation may increase NATO solidarity and defense investment, particularly in Poland and Baltic states.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "ZBLIŻA SIĘ JESZCZE WIĘKSZA FALA UPAŁÓW, ZEŁEŃSKI: “NIKT NAM BOHATERÓW WYBIERAĆ NIE BĘDZIE”",
+    "video_url": "https://www.youtube.com/watch?v=Go1cDlbaz_M",
+    "published_at": "2026-06-29",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "medium-term",
+        "summary": "Extreme heat waves due to climate change reduce agricultural yields in Poland, increasing food production costs and reducing profitability for farmers.",
+        "confidence": "high"
+      },
+      {
+        "asset": "European agriculture",
+        "direction": "bearish",
+        "timeframe": "medium-term",
+        "summary": "Repeated heat waves are damaging crops across Europe, particularly in Germany and Poland, leading to lower yields and higher food prices.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Oil prices",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Military conflict in Iran has led to increased volatility and rising oil prices as global markets react to supply disruption fears, with major oil companies reporting significant profits.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Oil company stocks (BP, Shell, TotalEnergies)",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Oil companies are benefiting from high market volatility and increased demand due to geopolitical tensions in the Middle East, leading to higher profits.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US banking sector",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Major US banks are profiting from increased financial market volatility and trading activity related to geopolitical events, including oil price swings.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Defense industry (Northrop Grumman)",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Defense contractors are seeing increased orders due to global military tensions and arms sales, driven by geopolitical instability in the Middle East.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Iranian economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Iran is suffering economic losses due to military conflict with increased sanctions and reduced oil export revenues, with inflation rising sharply.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish klimatyzation market",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Rising temperatures in Poland are driving increased demand for air conditioning units, boosting sales in the home appliance sector.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "AFERA NISZCZY SONDAŻE RZĄDU, NAWROCKI Z REKORDEM ZAUFANIA, TSUNAMI NA RYNKACH, KONIEC BINANCE W UE",
+    "video_url": "https://www.youtube.com/watch?v=BjqPCucrd6o",
+    "published_at": "2026-06-27",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "The hospital scandal involving the South Hospital, with allegations of mismanagement and unethical practices by medical staff, has severely damaged public trust in the Polish healthcare system. This is likely to negatively affect the government's credibility and potentially lead to political fallout, reducing investor confidence.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish zloty",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "The hospital scandal is causing negative sentiment in the Polish economy and may lead to political instability, which could weaken the Polish zloty as foreign investors react negatively.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Bitcoin",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Global market panic due to geopolitical tensions and economic uncertainty, including a sharp drop in Bitcoin from $61,800 to $58,100 within 30 minutes, indicates a bearish sentiment in cryptocurrency markets.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Gold",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Global equity and commodity markets are experiencing significant declines, with gold prices falling, reflecting broader market uncertainty and risk-off sentiment.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US tech stocks",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Major US tech stocks like Meta, Microsoft, and Apple are experiencing sharp price drops, indicating bearish investor sentiment and market correction in the technology sector.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US oil exports",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Global commodity markets are collapsing, including oil prices, due to broad-based risk-off sentiment and economic uncertainty, affecting US oil exports.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Binance",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Binance will lose its EU license on June 30, 2026, and will stop operating in the European Union starting July 1, 2026. This will lead to significant capital outflows from Binance users in Europe, especially as the platform transitions to a new operator like OKX.",
+        "confidence": "high"
+      },
+      {
+        "asset": "OKX",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "OKX is benefiting from Binance's exit from Europe by offering promotional bonuses and match deposits to attract new users migrating from Binance, leading to a potential increase in user base and trading volume.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish government bonds",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Political instability due to the South Hospital scandal and declining public trust in the government may increase risk premiums on Polish government bonds, leading to a bearish outlook.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Turkish economy",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Poland's improved diplomatic relations with Turkey and increased trade cooperation, including defense contracts, may boost the Turkish economy in the medium term.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Polish defense industry",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "The signing of a major defense contract between Poland and Turkey (Asselsan) for radio-electronic warfare systems may boost the Polish defense industry in the medium term.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Turkish lira",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Improved political ties and increased trade with Poland, along with Turkey's strategic role in NATO, may lead to a stronger Turkish lira in the short term.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "DLATEGO ZEŁEŃSKI SZUKA KONFLIKTU Z POLSKĄ, PRAWICA BIERZE AMERYKĘ PŁD, PREMIER UK REZYGNUJE!",
+    "video_url": "https://www.youtube.com/watch?v=SYOQkkdLLWM",
+    "published_at": "2026-06-23",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Ukrainian president Zelezny's symbolic rejection of Poland's order and escalating tensions may harm Polish economy due to reduced cooperation and potential trade disruptions.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish business environment",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "The launch of 'Polska Przedsiębiorcza' initiative by leading Polish entrepreneurs signals potential reforms that could improve business conditions and stimulate entrepreneurship in Poland.",
+        "confidence": "high"
+      },
+      {
+        "asset": "UK pound",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Prime Minister Starmer's resignation amid declining popularity and internal party conflict signals political instability, which may negatively impact the UK pound.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Latin American right-wing governments",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Rising right-wing leaders in Latin America, following the end of USAID funding to left-leaning governments, may lead to more stable economic policies and attract foreign investment.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish tech startups",
+        "direction": "neutral",
+        "timeframe": "medium-term",
+        "summary": "While the video discusses potential for improved business environment in Poland, no direct signal is given regarding Polish tech startups specifically.",
+        "confidence": "low"
+      },
+      {
+        "asset": "UK labour market",
+        "direction": "neutral",
+        "timeframe": "short-term",
+        "summary": "No direct mention or implication of changes to the UK labour market in the video content.",
+        "confidence": "low"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "PROTESTY ROZLEWAJĄ SIĘ PO EUROPIE, SPACEX - OKAZJA CZY WTOPA? WENEZUELCZYK, TORUŃ I KARA ŚMIERCI",
+    "video_url": "https://www.youtube.com/watch?v=tLroefk9Vb8",
+    "published_at": "2026-06-14",
+    "signals": [
+      {
+        "asset": "SpaceX stock",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Investor sentiment is negative due to high valuation and potential overhype from retail investors, leading to a risk of sharp correction in the near term.",
+        "confidence": "high"
+      },
+      {
+        "asset": "SpaceX IPO",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "The initial public offering was overvalued with high investor expectations, increasing risk of significant price decline in the short term.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "medium-term",
+        "summary": "Rising crime rates and illegal immigration may increase social tensions, potentially affecting economic stability and investor confidence in the medium term.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "UK labour market",
+        "direction": "neutral",
+        "timeframe": "short-term",
+        "summary": "Protests in UK cities could impact public order but do not directly influence labor market conditions in the short term.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US tech stocks",
+        "direction": "mixed",
+        "timeframe": "medium-term",
+        "summary": "The video highlights caution on high-growth tech IPOs like SpaceX, suggesting potential downside for speculative investments in this sector.",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "IRLANDIA POWSTAŁA PRZECIWKO IMIGRACJI, PŁACE POLAKÓW SIĘ PODWOIŁY, ZEŁEŃSKI SIĘ DOIGRAŁ",
+    "video_url": "https://www.youtube.com/watch?v=qXSyW74Ll3U",
+    "published_at": "2026-06-11",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Rising anti-immigration sentiment in Northern Ireland and growing public unrest may lead to economic instability, reduced foreign investment, and potential capital flight from Poland.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish zloty",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Political tensions due to anti-immigration protests in Northern Ireland could negatively impact investor confidence and lead to depreciation of the Polish zloty.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Polish wages",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Wage growth in Poland, particularly since 2020, is attributed to economic recovery and increased labor demand post-pandemic and post-war conditions, despite political rhetoric.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish GDP",
+        "direction": "neutral",
+        "timeframe": "medium-term",
+        "summary": "While nominal GDP growth appears strong, the speaker argues that it is largely driven by EU funding and not genuine economic productivity or sovereignty.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish stock market",
+        "direction": "mixed",
+        "timeframe": "short-term",
+        "summary": "Potential short-term volatility due to political tensions and anti-immigration unrest; however, long-term growth may be hindered by structural economic issues.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Ukrainian economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "President Zelenski's controversial recognition of UPA as heroes has led to international backlash and strained diplomatic relations with Poland, potentially reducing foreign aid or investment.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish political sentiment",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Increased public anti-immigration sentiment in Northern Ireland may reflect broader social tensions and could influence Polish political discourse, affecting stability.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "DLACZEGO IRAN ZAATAKOWAŁ IZRAEL? ZA 4 DNI WCHODZI PAKT MIGRACYJNY, POLSKA ZYSKA DYWIZJĘ USA?",
+    "video_url": "https://www.youtube.com/watch?v=E6bC75MmIIo",
+    "published_at": "2026-06-08",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "The upcoming EU migration pact will increase pressure on Poland to accept more migrants, leading to potential fiscal strain and social tensions.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Bitcoin",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Bitcoin price dropped due to stronger-than-expected US employment data, causing a shift in investor capital toward higher-yielding assets like US bonds and equities.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Gold",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Gold prices fell as the US Federal Reserve's stronger-than-expected economic data made non-yielding assets less attractive compared to interest-bearing investments.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US dollar",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "The US dollar strengthened due to increased demand for higher-yielding US bonds, driven by robust employment data and expectations of sustained Fed rate hikes.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US military spending",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Increased US defense spending and deployment of heavy armored divisions in Poland signal long-term strategic investment in NATO's eastern flank, enhancing regional security.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish zloty",
+        "direction": "neutral",
+        "timeframe": "short-term",
+        "summary": "The Polish zloty is not directly impacted by the discussed events but may face indirect pressure from increased migration and defense-related fiscal spending.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "US stock market",
+        "direction": "mixed",
+        "timeframe": "short-term",
+        "summary": "The US stock market may see mixed performance; while strong employment data could boost corporate earnings expectations, geopolitical tensions in the Middle East might create volatility.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "W UK WRZE PO ZABÓJSTWIE POLAKA! CO Z ROZMOWAMI POKOJOWYMI US-IRAN? EKSPANSJA BLIKA W EU",
+    "video_url": "https://www.youtube.com/watch?v=XFKMloiqjSg",
+    "published_at": "2026-06-04",
+    "signals": [
+      {
+        "asset": "Polish economy",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Rising immigration from Africa and lack of prosecution of crimes by migrants signals social instability and potential economic strain.",
+        "confidence": "high"
+      },
+      {
+        "asset": "NATO Nuclear Sharing expansion",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Discussions about expanding NATO Nuclear Sharing to Poland indicate increased military integration with the US, potentially leading to greater defense spending and geopolitical stability in Europe.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "US dollar",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Escalating tensions between US and Iran, including attacks on US military bases, increase demand for safe-haven assets like the US dollar.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Oil prices",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Iranian attacks on US military installations in Bahrain and Kuwait trigger a spike in oil prices as supply concerns rise.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Bitcoin",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Market reaction to geopolitical tensions and Iran attacks causes Bitcoin to drop from $75,000 to $66,600.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Etherium",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Geopolitical uncertainty and market sell-off cause Etherium to fall below $2,000.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Gold",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Market volatility and geopolitical risk drive demand for gold as a safe-haven asset; gold maintains upward trend from $4,500/oz.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish tech startups",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "Blik's expansion into European markets and integration with major Romanian banks indicates strong growth potential for Polish fintech.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish zloty",
+        "direction": "neutral",
+        "timeframe": "short-term",
+        "summary": "No direct mention of the zloty's performance, but increased foreign investment in Polish tech suggests potential appreciation.",
+        "confidence": "low"
+      }
+    ]
+  },
+  {
+    "channel_name": "Dla Pieniędzy",
+    "video_title": "JAK POWINNIŚMY ODPOWIEDZIEĆ ZEŁEŃSKIEMU? 300 MILIARDÓW REPARACJI DLA IRANU, PIERWSZY TAKI NASZ DRON",
+    "video_url": "https://www.youtube.com/watch?v=MxXRA5Kz4-I",
+    "published_at": "2026-05-31",
+    "signals": [
+      {
+        "asset": "Polish zloty",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "Poland's currency may weaken due to potential economic sanctions or reduced foreign investment resulting from Poland's stance against Ukraine's recognition of UPA units, which could strain diplomatic and economic relations with Ukraine.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Ukrainian hryvnia",
+        "direction": "bearish",
+        "timeframe": "short-term",
+        "summary": "The Ukrainian currency may face pressure due to international criticism over honoring UPA, potentially leading to reduced foreign aid and investment, especially if Poland or other Western nations cut support.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Iranian rial",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "The Iranian currency may strengthen due to potential U.S.-Iran peace deal involving a $300 billion war reparations fund, which could lead to increased foreign capital inflows and reduced international sanctions.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US oil exports",
+        "direction": "bullish",
+        "timeframe": "medium-term",
+        "summary": "U.S. oil exports may benefit from Iran's potential agreement to resume maritime trade through the Strait of Hormuz, which could reduce global supply disruptions and stabilize oil prices.",
+        "confidence": "high"
+      },
+      {
+        "asset": "Polish defense sector",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "The Polish defense industry may see a boost due to increased domestic investment in local drone development and military technology, especially as Poland aims to build indigenous offensive capabilities.",
+        "confidence": "high"
+      },
+      {
+        "asset": "US dollar",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "The U.S. dollar may strengthen due to potential increased demand for U.S. financial assets as part of a U.S.-Iran peace deal, including possible reparations funding and economic incentives.",
+        "confidence": "medium"
+      },
+      {
+        "asset": "Polish military drones",
+        "direction": "bullish",
+        "timeframe": "short-term",
+        "summary": "Polish drone technology sector may experience growth due to government support for local development of military-grade unmanned aerial vehicles (MTJD series), potentially leading to increased export opportunities.",
+        "confidence": "high"
+      }
+    ]
+  }
+]

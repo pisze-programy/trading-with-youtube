@@ -65,6 +65,7 @@ DATA_DIR=data
 
 # WebshareProxyConfig
 # https://dashboard.webshare.io/proxy/settings
+# Residential Proxy Required
 PROXY_USERNAME=
 PROXY_PASSWORD=
 ```

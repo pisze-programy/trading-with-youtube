@@ -13,7 +13,6 @@ from youtube_transcript_api.proxies import WebshareProxyConfig
 
 load_dotenv()
 
-
 PROXY_USERNAME = os.getenv("PROXY_USERNAME")
 PROXY_PASSWORD = os.getenv("PROXY_PASSWORD")
 
@@ -25,7 +24,10 @@ def fetch_transcript(url: str) -> List[Dict[str, Any]]:
     vid = get_video_id(url)
     try:
         raw = YouTubeTranscriptApi(
-
+            proxy_config=WebshareProxyConfig(
+                proxy_username=f"{PROXY_USERNAME}",
+                proxy_password=f"{PROXY_PASSWORD}",
+            )
         ).fetch(vid, languages=['en', 'pl'], preserve_formatting=True)
         return " ".join([w.text for w in raw])
     except Exception as exc:
@@ -77,32 +79,25 @@ def analyze_with_ollama(meta: Dict[str, Any], transcript: List[Dict[str, Any]]) 
         raise HTTPException(status_code=500, detail=f"Analysis error: {str(exc)}") from exc
 
 
-def fetch_video_metadata(url: str) -> Dict[str, Any]:
-    ydl_opts = {
-        'skip_download': True,
-        'quiet': True,
+def fetch_video_metadata(ydl, url: str) -> Dict[str, Any]:
+    info = ydl.extract_info(url, download=False)
+    # upload_date '20260712'
+    raw_date = info.get("upload_date")
+    # formatted '2026-07-12'
+    if raw_date and len(raw_date) == 8:
+        formatted_date = datetime.strptime(raw_date, "%Y%m%d").strftime("%Y-%m-%d")
+    else:
+        formatted_date = raw_date
+
+    return {
+        "title": info.get("title"),
+        "channel_name": info.get("uploader"),
+        "published_at": formatted_date,
+        "upload_date": raw_date,
+        "channel_id": info.get("channel_id"),
+        "url": info.get("webpage_url"),
+        "duration": info.get("duration")
     }
-
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        info = ydl.extract_info(url, download=False)
-        # upload_date '20260712'
-        raw_date = info.get("upload_date")
-        # formatted '2026-07-12'
-        if raw_date and len(raw_date) == 8:
-            formatted_date = datetime.strptime(raw_date, "%Y%m%d").strftime("%Y-%m-%d")
-        else:
-            formatted_date = raw_date
-
-        return {
-            "title": info.get("title"),
-            "channel_name": info.get("uploader"),
-            "published_at": formatted_date,
-            "upload_date": raw_date,
-            "channel_id": info.get("channel_id"),
-            "url": info.get("webpage_url"),
-            "duration": info.get("duration")
-        }
-    return None
 
 
 def sanitize_filename(name: str) -> str:
@@ -138,21 +133,48 @@ def save_to_file(meta: Dict[str, Any], data: Dict[str, Any]):
         json.dump(existing, fp, indent=2, ensure_ascii=False)
 
 
-def fetch_and_analyze(url: str) -> Dict[str, Any]:
-    two_years_ago = datetime.now(timezone.utc) - timedelta(days=2 * 365)
+def get_channel_videos(ydl, channel_url):
+    info = ydl.extract_info(channel_url, download=False)
+    print(json.dumps(ydl.sanitize_info(info)))
 
-    meta = fetch_video_metadata(url)
+    return [entry.get('id') for entry in info.get('entries', []) if entry]
 
-    upload_date_str = meta.get('upload_date')
-    upload_date = datetime.strptime(upload_date_str, '%Y%m%d').replace(tzinfo=timezone.utc)
 
-    if upload_date < two_years_ago:
-        return None
+def fetch_and_analyze(channel_name: str) -> Dict[str, Any]:
+    channel_url = f"https://www.youtube.com/{channel_name}/videos"
 
-    transcript = fetch_transcript(url)
-    print(meta)
-    print(url)
+    threshold_date = datetime(2025, 1, 1, tzinfo=timezone.utc)
+    ydl_opts = {
+        'quiet': True,
+        'extract_flat': True,
+        'skip_download': True,
+        'no_warnings': True,
+        'ignoreerrors': True,
+        'writesubtitles': False,
+        'writeautomaticsub': False,
+        'playlistend': 50,
+        'postprocessors': [],
+        'proxy': f'http://mdtduclo-rotate:1mhd0l5qhowm@p.webshare.io:80'
+    }
 
-    analysis_text = analyze_with_ollama(meta, transcript)
-    save_to_file(meta, analysis_text)
-    return analysis_text
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        # fetch all channel videos
+        video_ids = get_channel_videos(ydl, channel_url)
+
+        for vid in video_ids:
+            url = f"https://www.youtube.com/watch?v={vid}"
+            meta = fetch_video_metadata(ydl, url)
+            raw_date = meta.get('upload_date')
+
+            if not raw_date: continue
+            upload_date = datetime.strptime(raw_date, '%Y%m%d').replace(tzinfo=timezone.utc)
+            if upload_date < threshold_date:
+                continue
+
+            try:
+                transcript = fetch_transcript(url)
+                analysis = analyze_with_ollama(meta, transcript)
+                save_to_file(meta, analysis)
+            except Exception as e:
+                print(f"Failed to process {vid}: {e}")
+    return None
